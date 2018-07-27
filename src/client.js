@@ -43,7 +43,8 @@ var clientFactory = function (fetchFn, serializer, deserializer) {
                 method: "POST",
                 body: serialize(requestMsg),
                 redirect: "manual",
-                headers: headersWithCustom
+                headers: headersWithCustom,
+                credentials: "same-origin"
             };
             return fetchFn(endpoint + method, opts).then(function (res) {
                 // 200 is the only valid response
